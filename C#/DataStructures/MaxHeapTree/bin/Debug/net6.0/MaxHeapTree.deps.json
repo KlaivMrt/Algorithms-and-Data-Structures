@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MaxHeapTree/1.0.0": {
+        "runtime": {
+          "MaxHeapTree.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MaxHeapTree/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
