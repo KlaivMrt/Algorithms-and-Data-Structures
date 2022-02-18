@@ -17,7 +17,7 @@ heap tree:
 
   output: { 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 }
 
-  heap tree:
+  max heap tree:
 
             16
           /    \
