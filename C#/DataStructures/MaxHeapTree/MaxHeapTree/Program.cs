@@ -21,14 +21,16 @@
 
 
             MaxHeapTree tree = new MaxHeapTree();
-            tree.BuildMaxHeap(array);
-            //tree.MaxHeapify(array, 2);
+            /*tree.BuildMaxHeap(array);
 
-            foreach(int num in array)
+            foreach (int num in array)
                 Console.Write("{0} ", num);
-            //Console.WriteLine();
-            //foreach (int num in array)
-               // Console.Write("{0} ", num);
+            Console.WriteLine();*/
+
+            tree.HeapSort(array);
+            foreach (int num in array)
+                Console.Write("{0} ", num);
+            Console.WriteLine();
         }
     }
 }

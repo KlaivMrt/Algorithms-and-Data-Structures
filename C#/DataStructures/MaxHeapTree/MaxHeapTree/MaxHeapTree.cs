@@ -8,50 +8,70 @@ namespace DataStructures
 {
     public class MaxHeapTree
     {
-
         private int Left(int index)
-        {
-            return index * 2;
-        }
-
-        private int Right(int index)
         {
             return index * 2 + 1;
         }
 
-        public void MaxHeapify(int[] array, int index)
+        private int Right(int index)
+        {
+            return index * 2 + 2;
+        }
+
+        private int Parent(int index)
+        {
+            return (index - 1) / 2;
+        }
+
+        private void MaxHeapify(int[] array, int index, int length)
         {
             int largest = index;
             int left = Left(index);
             int right = Right(index);
 
-            if (left <= array.Length && array[left - 1] > array[index - 1])
+            if (left <= length -1 && array[left] > array[index])
                 largest = left;
 
             else
                 largest = index;
 
-            if (right <= array.Length && array[right - 1] > array[largest - 1])
+            if (right <= length -1 && array[right] > array[largest])
                 largest = right;
 
             if (largest != index)
             {
-                int max = array[largest - 1];
-                int min = array[index - 1];
+                int max = array[largest];
+                int min = array[index];
 
-                array[index - 1] = max;
-                array[largest - 1] = min;
+                array[index] = max;
+                array[largest] = min;
 
-                Console.WriteLine(largest - 1);
-                MaxHeapify(array, largest);
+                MaxHeapify(array, largest, largest);
             }
         }
 
         public void BuildMaxHeap(int[] array)
         {
-            int length = array.Length/2;
-            for (int i = length; i > 0; i--)
-                MaxHeapify(array, i);
+            int length = (array.Length - 1)/2;
+            for (int i = (array.Length - 1) / 2; i > -1; i--)
+                MaxHeapify(array, i, array.Length);
+        }
+
+        public void HeapSort(int[] array)
+        {
+            BuildMaxHeap(array);
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                int swap = array[i];
+                array[i] = array[0];
+                array[0] = swap;
+
+                MaxHeapify(array, 0, i);
+
+                foreach (int num in array)
+                    Console.Write("{0} ", num);
+                Console.WriteLine();
+            }
         }
     }
 }
