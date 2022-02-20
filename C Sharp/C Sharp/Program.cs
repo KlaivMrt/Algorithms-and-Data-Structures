@@ -1,30 +1,13 @@
-﻿namespace DataStructures
+﻿namespace C_Sharp
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            int[] array = new int[] { 2, 7, 26, 25, 19, 17, 1, 90, 3, 36 };
-            List<int> list = new List<int>() { 16, 4, 10, 14, 7, 9, 3, 2, 8, 1 };
+            int[] array = new int[] { 8, 7, 5, 6 };
+            QuickSort.Sort(array, 0, array.Length - 1);
 
-
-            MaxHeapTree tree = new MaxHeapTree();
-            tree.BuildMaxHeap(array);
-            tree.DisplayHeap();
-            Console.WriteLine();
-
-            tree.BuildMaxHeap(list);
-            tree.DisplayHeap();
-            Console.WriteLine();
-
-            tree.HeapSort(array);
-            foreach (int num in array)
-                Console.Write(num + " ");
-            Console.WriteLine();
-            Console.WriteLine();
-
-            tree.HeapSort(list);
-            foreach (int num in list)
+            foreach(int num in array)
                 Console.Write(num + " ");
             Console.WriteLine();
         }
