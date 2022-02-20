@@ -1,5 +1,4 @@
 
-
 class MaxHeapTree:
     def __init__(self):
         self.__heap = []
