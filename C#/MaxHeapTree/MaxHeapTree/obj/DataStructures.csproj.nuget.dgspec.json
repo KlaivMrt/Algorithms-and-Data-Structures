@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\DataStructures\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj": {}
+    "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\DataStructures\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj": {
+    "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\DataStructures\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj",
+        "projectUniqueName": "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj",
         "projectName": "DataStructures",
-        "projectPath": "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\DataStructures\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj",
+        "projectPath": "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\MaxHeapTree\\MaxHeapTree\\DataStructures.csproj",
         "packagesPath": "C:\\Users\\arcmi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\DataStructures\\MaxHeapTree\\MaxHeapTree\\obj\\",
+        "outputPath": "C:\\Users\\arcmi\\Documents\\Algoritms and Data Structures Built\\C#\\MaxHeapTree\\MaxHeapTree\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arcmi\\AppData\\Roaming\\NuGet\\NuGet.Config",

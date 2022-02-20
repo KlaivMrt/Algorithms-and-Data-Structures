@@ -4,17 +4,6 @@
 
     public class Program
     {
-
-        public static int[] changes(int[] array)
-        {
-            int max = array[0];
-            int min = array[1];
-
-            array[1] = max;
-            array[0] = min;
-
-            return array;
-        }
         public static void Main(string[] args)
         {
             int[] array = new int[] { 2, 7, 26, 25, 19, 17, 1, 90, 3, 36 };
