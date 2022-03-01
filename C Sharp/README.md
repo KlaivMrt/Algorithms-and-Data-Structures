@@ -1,1 +1,1 @@
-Various Algorithms and Data Structures implemented in C#.
+Various Algorithms and Data Structures built with C#.

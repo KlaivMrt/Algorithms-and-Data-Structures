@@ -1,1 +1,1 @@
-Various Algorithms and Data Structures implemented in Python.
+Various Algorithms and Data Structures built with Python.
