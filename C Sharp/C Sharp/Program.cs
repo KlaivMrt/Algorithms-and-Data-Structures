@@ -4,12 +4,14 @@
     {
         public static void Main(string[] args)
         {
-            int[] array = new int[] { 8, 7, 5, 6 };
-            QuickSort.Sort(array, 0, array.Length - 1);
+            int[] array = new int[] { 10, 3, 1, 7, 8, 9, 2};
+            MinHeapTree minHeapTree = new MinHeapTree();
 
-            foreach(int num in array)
-                Console.Write(num + " ");
-            Console.WriteLine();
+            minHeapTree.BuildMinHeap(array);
+            minHeapTree.DisplayHeap();
+
+            minHeapTree.Delete(0);
+            minHeapTree.DisplayHeap();
         }
     }
 }

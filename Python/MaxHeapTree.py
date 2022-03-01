@@ -37,7 +37,6 @@ class MaxHeapTree:
 
     def build_max_heap(self, array: list):
         self.__heap = array
-        print(self.__heap)
         length = len(self.__heap)
 
         for i in range((length - 1) // 2, -1, -1):

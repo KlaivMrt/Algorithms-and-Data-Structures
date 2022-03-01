@@ -8,7 +8,7 @@ namespace C_Sharp
 {
     public class MaxHeapTree
     {
-        private List<int> heap;
+        private List<int> Heap;
 
         private int Left(int index)
         {
@@ -23,6 +23,18 @@ namespace C_Sharp
         private int Parent(int index)
         {
             return (index - 1) / 2;
+        }
+
+        public List<int> GetHeap()
+        {
+            return Heap;
+        }
+
+        public void DisplayHeap()
+        {
+            foreach (int num in Heap)
+                Console.Write(num + " ");
+            Console.WriteLine();
         }
 
         private void MaxHeapify(List<int> array, int index, int length)
@@ -50,68 +62,6 @@ namespace C_Sharp
             }
         }
 
-        public void BuildMaxHeap(int[] array)
-        {
-            heap = array.ToList();
-            for (int i = (heap.Count() - 1) / 2; i > -1; i--)
-                MaxHeapify(heap, i, heap.Count());
-        }
-
-        public void BuildMaxHeap(List<int> array)
-        {
-            heap = array;
-            for (int i = (heap.Count() - 1) / 2; i > -1; i--)
-                MaxHeapify(heap, i, heap.Count());
-        }
-
-        public void Add(int num)
-        {
-            heap.Add(num);
-            int pos = heap.Count() - 1;
-            // int length = heap.Count();
-            while (pos > 0)
-            {
-                int parent = Parent(pos);
-                if (heap[pos] > heap[parent])
-                {
-                    int swap = heap[pos];
-                    heap[pos] = heap[parent];
-                    heap[parent] = swap;
-
-                    pos = parent;
-                }
-                else break;
-            }
-        }
-
-        public void Delete(int index)
-        {
-            int swap = heap[index];
-            heap[index] = heap[0];
-            heap[0] = swap;
-
-            int first = heap[0];
-            heap[0] = heap[heap.Count() - 1];
-            heap[heap.Count() - 1] = first;
-
-            heap.RemoveAt(heap.Count() - 1);
-
-            MaxHeapify(heap, 0, heap.Count());
-        }
-
-        public List<int> GetHeap()
-        {
-            return heap;
-        }
-
-        public void DisplayHeap()
-        {
-            foreach (int num in heap)
-                Console.Write(num + " ");
-            Console.WriteLine();
-        }
-
-        // ----------------------------------------------------------
         private void MaxHeapify(int[] array, int index, int length)
         {
             int largest = index;
@@ -139,6 +89,58 @@ namespace C_Sharp
             }
         }
 
+        public void BuildMaxHeap(int[] array)
+        {
+            Heap = array.ToList();
+            for (int i = (Heap.Count() - 1) / 2; i > -1; i--)
+                MaxHeapify(Heap, i, Heap.Count());
+        }
+
+        public void BuildMaxHeap(List<int> array)
+        {
+            Heap = array;
+            for (int i = (Heap.Count() - 1) / 2; i > -1; i--)
+                MaxHeapify(Heap, i, Heap.Count());
+        }
+
+        public void Add(int num)
+        {
+            Heap.Add(num);
+            int pos = Heap.Count() - 1;
+            // int length = heap.Count();
+            while (pos > 0)
+            {
+                int parent = Parent(pos);
+                if (Heap[pos] > Heap[parent])
+                {
+                    int swap = Heap[pos];
+                    Heap[pos] = Heap[parent];
+                    Heap[parent] = swap;
+
+                    pos = parent;
+                }
+                else break;
+            }
+        }
+
+        public void Delete(int index)
+        {
+            int swap = Heap[index];
+            Heap[index] = Heap[0];
+            Heap[0] = swap;
+
+            int first = Heap[0];
+            Heap[0] = Heap[Heap.Count() - 1];
+            Heap[Heap.Count() - 1] = first;
+
+            Heap.RemoveAt(Heap.Count() - 1);
+
+            MaxHeapify(Heap, 0, Heap.Count());
+        }
+
+
+        // ----------------------------------------------------------
+
         private void BuildMaxHeapSort(int[] array)
         {
             for (int i = (array.Length - 1) / 2; i > -1; i--)
@@ -155,10 +157,7 @@ namespace C_Sharp
         {
             BuildMaxHeapSort(array);
 
-            foreach (int num in array)
-                Console.Write(num + " ");
-            Console.WriteLine();
-
+            
             for (int i = array.Length - 1; i > 0; i--)
             {
                 int swap = array[i];
@@ -172,10 +171,6 @@ namespace C_Sharp
         public void HeapSort(List<int> array)
         {
             BuildMaxHeapSort(array);
-
-            foreach (int num in array)
-                Console.Write(num + " ");
-            Console.WriteLine();
 
             for (int i = array.Count - 1; i > 0; i--)
             {
