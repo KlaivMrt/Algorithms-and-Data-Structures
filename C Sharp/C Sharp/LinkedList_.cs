@@ -224,16 +224,48 @@ namespace C_Sharp
             length++;
         }
 
-        public void display()
+        public void Append(int index, object content)
         {
+            Node newNode = new Node(content);
             Node? current = this.First;
-            int count = 0;
-            while (count < length)
+            Node? next;
+
+            if (length == 0)
             {
-                Console.WriteLine(current.GetPrevious() + " <- " + current + " -> " + current.GetNext());
-                current = current.GetNext();
-                count++;
+                throw new Exception("Linked list is empty");
             }
+
+            if (index == 0)
+            {
+                newNode.SetNext(First);
+                First.SetPrevious(newNode);
+                First = newNode;
+                length++;
+                return;
+            }
+
+            if (index > length - 1 && Last != null)
+            {
+                Last.SetNext(newNode);
+                newNode.SetPrevious(Last);
+                Last = newNode;
+                length++;
+                return;
+            }
+
+            int count = 0;
+            while (count < index)
+            {
+                count++;
+                next = current.GetNext();
+                current = next;
+            }
+
+            newNode.SetPrevious(current.GetPrevious());
+            current.GetPrevious().SetNext(newNode);
+            current.SetPrevious(newNode);
+            newNode.SetNext(current);
+            length++;
         }
 
         public void Display()
@@ -247,9 +279,6 @@ namespace C_Sharp
                 count++;
             }
             Console.WriteLine("null -- Length: " + length);
-            Console.WriteLine();
-            Console.WriteLine(First != null ? "First: " + First : "First: null");
-            Console.WriteLine(Last != null ? "Last: " + Last : "Last: null");
             Console.WriteLine();
         }
     }
