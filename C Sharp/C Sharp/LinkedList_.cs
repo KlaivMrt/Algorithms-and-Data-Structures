@@ -62,5 +62,195 @@ namespace C_Sharp
 
     public class LinkedList_
     {
+        private Node? First;
+        private Node? Last;
+        private int length = 0;
+
+        public void Add(int content)
+        {
+            Node node = new Node(content);
+
+            if (Last != null)
+            {
+                Last.SetNext(node);
+                node.SetPrevious(Last);
+                Last = node;
+                length++;
+            }
+            else if (First != null && Last == null)
+            {
+                First.SetNext(node);
+                Last = node;
+                Last.SetPrevious(First);
+                length++;
+            }
+            else if (First == null && Last == null)
+            {
+                First = node;
+                length++;
+            }
+        }
+
+        public void Add(object content)
+        {
+            Node node = new Node(content);
+
+            if (Last != null)
+            {
+                Last.SetNext(node);
+                node.SetPrevious(Last);
+                Last = node;
+                length++;
+            }
+            else if (First != null && Last == null)
+            {
+                First.SetNext(node);
+                Last = node;
+                Last.SetPrevious(First);
+                length++;
+            }
+            else if (First == null && Last == null)
+            {
+                First = node;
+                length++;
+            }
+        }
+
+        public void DeleteNode(int index)
+        {
+            Node? current = this.First;
+            Node? next;
+
+            if (index > length - 1 || index < 0)
+            {
+                Console.WriteLine("ok");
+                throw new IndexOutOfRangeException();
+            }
+
+            if (index == 0 && length - 1 == 0)
+            {
+                First = null;
+                length--;
+                return;
+
+            }
+            else if (index == 0 && length - 1 > 0)
+            {
+                First = current.GetNext();
+                current.RemoveNext();
+                First.RemovePrevious();
+                length--;
+                return;
+            }
+
+            if (index == length - 1)
+            {
+                //Console.WriteLine("ok");
+                current = Last;
+                next = current.GetPrevious();
+                next.RemoveNext();
+                current.RemovePrevious();
+                if (next == First)
+                {
+                    Last = null;
+                }
+                else
+                {
+                    Last = next;
+                }
+                length--;
+                return;
+            }
+
+            int count = 0;
+            while (count < index)
+            {
+                count++;
+                next = current.GetNext();
+                current = next;
+            }
+
+            next = current.GetNext();
+            next.SetPrevious(current.GetPrevious());
+            current.RemoveNext();
+            current.RemovePrevious();
+            next.GetPrevious().SetNext(next);
+            length--;
+
+        }
+
+
+        public void Append(int index, int content)
+        {
+            Node newNode = new Node(content);
+            Node? current = this.First;
+            Node? next;
+
+            if (length == 0)
+            {
+                throw new Exception("Linked list is empty");
+            }
+
+            if (index == 0)
+            {
+                newNode.SetNext(First);
+                First.SetPrevious(newNode);
+                First = newNode;
+                length++;
+                return;
+            }
+
+            if (index > length - 1 && Last != null)
+            {
+                Last.SetNext(newNode);
+                newNode.SetPrevious(Last);
+                Last = newNode;
+                length++;
+                return;
+            }
+
+            int count = 0;
+            while (count < index)
+            {
+                count++;
+                next = current.GetNext();
+                current = next;
+            }
+
+            newNode.SetPrevious(current.GetPrevious());
+            current.GetPrevious().SetNext(newNode);
+            current.SetPrevious(newNode);
+            newNode.SetNext(current);
+            length++;
+        }
+
+        public void display()
+        {
+            Node? current = this.First;
+            int count = 0;
+            while (count < length)
+            {
+                Console.WriteLine(current.GetPrevious() + " <- " + current + " -> " + current.GetNext());
+                current = current.GetNext();
+                count++;
+            }
+        }
+
+        public void Display()
+        {
+            Node? current = this.First;
+            int count = 0;
+            while (count < length)
+            {
+                Console.Write(current + " <-> ");
+                current = current.GetNext();
+                count++;
+            }
+            Console.WriteLine("null -- Length: " + length);
+            Console.WriteLine();
+            Console.WriteLine(First != null ? "First: " + First : "First: null");
+            Console.WriteLine(Last != null ? "Last: " + Last : "Last: null");
+            Console.WriteLine();
+        }
     }
 }
