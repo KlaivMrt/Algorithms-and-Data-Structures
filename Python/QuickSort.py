@@ -1,7 +1,7 @@
 class QuickSort:
 
     @staticmethod
-    def __partition(array: list, low: int, high: int) -> int:
+    def _partition(array: list, low: int, high: int) -> int:
         x = array[high]
         i = low - 1
 
@@ -15,7 +15,7 @@ class QuickSort:
 
     def sort(self, array: list, low: int, high: int):
         if low < high:
-            part = self.__partition(array, low, high)
+            part = self._partition(array, low, high)
             # print(array)
             self.sort(array, low, part - 1)
             self.sort(array, part + 1, high)

@@ -3,15 +3,15 @@ class MinHeapTree:
         self.__heap = []
 
     @staticmethod
-    def __parent(index: int) -> int:
+    def _parent(index: int) -> int:
         return (index - 1) // 2
 
     @staticmethod
-    def __left(index: int) -> int:
+    def _left(index: int) -> int:
         return index * 2 + 1
 
     @staticmethod
-    def __right(index: int) -> int:
+    def _right(index: int) -> int:
         return index * 2 + 2
 
     def get_heap(self) -> list:
@@ -20,10 +20,10 @@ class MinHeapTree:
     def display_heap(self):
         print(self.__heap)
 
-    def __min_heapify(self, array: list, index: int, length: int):
+    def _min_heapify(self, array: list, index: int, length: int):
         smallest = index
-        left = self.__left(index)
-        right = self.__right(index)
+        left = self._left(index)
+        right = self._right(index)
 
         if left <= length - 1 and array[left] < array[index]:
             smallest = left
@@ -32,27 +32,27 @@ class MinHeapTree:
 
         if smallest != index:
             array[smallest], array[index] = array[index], array[smallest]
-            self.__min_heapify(array, smallest, length)
+            self._min_heapify(array, smallest, length)
 
     def build_min_heap(self, array: list):
         self.__heap = array
         length = len(self.__heap)
 
         for i in range((length - 1) // 2, -1, -1):
-            self.__min_heapify(self.__heap, i, length)
+            self._min_heapify(self.__heap, i, length)
 
-    def __build_min_heap(self, array: list):
+    def _build_min_heap(self, array: list):
         length = len(array)
 
         for i in range((length - 1) // 2, 0, -1):
-            self.__min_heapify(array, i, length)
+            self._min_heapify(array, i, length)
 
     def add(self, num: int):
         self.__heap.append(num)
         pos = len(self.__heap) - 1
 
         while pos > 0:
-            parent = self.__parent(pos)
+            parent = self._parent(pos)
             if self.__heap[pos] < self.__heap[parent]:
                 self.__heap[parent], self.__heap[pos] = self.__heap[pos], self.__heap[parent]
                 pos = parent
@@ -64,14 +64,14 @@ class MinHeapTree:
         self.__heap[index], self.__heap[0] = self.__heap[0], self.__heap[index]
         self.__heap[0], self.__heap[length - 1] = self.__heap[length - 1], self.__heap[0]
 
-        self.__min_heapify(self.__heap, 0, length)
+        self._min_heapify(self.__heap, 0, length)
 
     def heap_sort(self, array: list):
-        self.__build_min_heap(array)
+        self._build_min_heap(array)
         for i in range(len(array) - 1, 0, -1):
             array[0], array[i] = array[i], array[0]
 
-            self.__min_heapify(array, 0, i)
+            self._min_heapify(array, 0, i)
 
 
 if __name__ == '__main__':
