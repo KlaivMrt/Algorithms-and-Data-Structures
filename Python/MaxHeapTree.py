@@ -1,5 +1,3 @@
-from LinkedList import Node
-
 class MaxHeapTree:
 
     def __init__(self):

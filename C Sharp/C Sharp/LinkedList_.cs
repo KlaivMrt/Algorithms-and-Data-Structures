@@ -75,20 +75,18 @@ namespace C_Sharp
                 Last.SetNext(node);
                 node.SetPrevious(Last);
                 Last = node;
-                length++;
             }
             else if (First != null && Last == null)
             {
                 First.SetNext(node);
                 Last = node;
                 Last.SetPrevious(First);
-                length++;
             }
             else if (First == null && Last == null)
             {
                 First = node;
-                length++;
             }
+            length++;
         }
 
         public void Add(object content)
@@ -100,20 +98,18 @@ namespace C_Sharp
                 Last.SetNext(node);
                 node.SetPrevious(Last);
                 Last = node;
-                length++;
             }
             else if (First != null && Last == null)
             {
                 First.SetNext(node);
                 Last = node;
                 Last.SetPrevious(First);
-                length++;
             }
             else if (First == null && Last == null)
             {
                 First = node;
-                length++;
             }
+            length++;
         }
 
         public void DeleteNode(int index)
@@ -124,17 +120,17 @@ namespace C_Sharp
             if (index > length - 1 || index < 0)
             {
                 Console.WriteLine("ok");
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException("The index provided is out of the linked list's range");
             }
 
-            if (index == 0 && length - 1 == 0)
+            if (index == 0 && length == 1)
             {
                 First = null;
                 length--;
                 return;
 
             }
-            else if (index == 0 && length - 1 > 0)
+            else if (index == 0 && length > 1)
             {
                 First = current.GetNext();
                 current.RemoveNext();
@@ -188,7 +184,7 @@ namespace C_Sharp
 
             if (length == 0)
             {
-                throw new Exception("Linked list is empty");
+                throw new Exception("Linked list is empty, consider adding first to it");
             }
 
             if (index == 0)
