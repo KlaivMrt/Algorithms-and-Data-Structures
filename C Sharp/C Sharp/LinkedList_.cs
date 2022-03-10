@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace C_Sharp
 {
-    public class Node
+    public class LL_Node
     {
-        private Node? Next;
-        private Node? Previous;
+        private LL_Node? Next;
+        private LL_Node? Previous;
 
         private readonly int numContent;
         private readonly object? obContent;
 
-        internal Node(int content)
+        internal LL_Node(int content)
         {
             numContent = content;
         }
 
-        internal Node(object content)
+        internal LL_Node(object content)
         {
             obContent = content;
         }
 
-        internal void SetNext(Node next)
+        internal void SetNext(LL_Node next)
         {
             Next = next;
         }
 
-        internal void SetPrevious(Node previous)
+        internal void SetPrevious(LL_Node previous)
         {
             Previous = previous;
         }
 
-        internal Node GetNext()
+        internal LL_Node GetNext()
         {
             return Next;
         }
 
-        internal Node GetPrevious()
+        internal LL_Node GetPrevious()
         {
             return Previous;
         }
@@ -62,13 +62,13 @@ namespace C_Sharp
 
     public class LinkedList_
     {
-        private Node? First;
-        private Node? Last;
+        private LL_Node? First;
+        private LL_Node? Last;
         private int length = 0;
 
         public void Add(int content)
         {
-            Node node = new Node(content);
+            LL_Node node = new LL_Node(content);
 
             if (Last != null)
             {
@@ -91,7 +91,7 @@ namespace C_Sharp
 
         public void Add(object content)
         {
-            Node node = new Node(content);
+            LL_Node node = new LL_Node(content);
 
             if (Last != null)
             {
@@ -114,8 +114,8 @@ namespace C_Sharp
 
         public void DeleteNode(int index)
         {
-            Node? current = this.First;
-            Node? next;
+            LL_Node? current = this.First;
+            LL_Node? next;
 
             if (index > length - 1 || index < 0)
             {
@@ -178,9 +178,9 @@ namespace C_Sharp
 
         public void Append(int index, int content)
         {
-            Node newNode = new Node(content);
-            Node? current = this.First;
-            Node? next;
+            LL_Node newNode = new LL_Node(content);
+            LL_Node? current = this.First;
+            LL_Node? next;
 
             if (length == 0)
             {
@@ -222,9 +222,9 @@ namespace C_Sharp
 
         public void Append(int index, object content)
         {
-            Node newNode = new Node(content);
-            Node? current = this.First;
-            Node? next;
+            LL_Node newNode = new LL_Node(content);
+            LL_Node? current = this.First;
+            LL_Node? next;
 
             if (length == 0)
             {
@@ -266,7 +266,7 @@ namespace C_Sharp
 
         public void Display()
         {
-            Node? current = this.First;
+            LL_Node? current = this.First;
             int count = 0;
             while (count < length)
             {

@@ -4,37 +4,41 @@
     {
         public static void Main(string[] args)
         {
-            int x = 12;
-            int y = 43;
-            int z = 300;
-            object one = new object();
+            BinaryTree tree = new BinaryTree();
+            Random random = new Random();
 
-            LinkedList_ lk = new LinkedList_();
+            BT_Node? three = null;
+            BT_Node? eight = null;
 
-            lk.Add(x);
-            lk.Add(y);
-            lk.Add(z);
-            lk.Add(one);
-            lk.Add(400);
-            lk.Add(15);
-            lk.Add(26);
+            for (int i = 0; i < 10; i++)
+            {
+                BT_Node node = new BT_Node();
+                if (i == 3)
+                {
+                    node.Key = i;
+                    three = node;
+                    tree.TreeInsert(three);
+                }
+                else if (i == 2)
+                {
+                    node.Key = i;
+                    eight = node;
+                    tree.TreeInsert(eight);
+                }
+                else
+                {
+                    node.Key = i;
+                    tree.TreeInsert(node);
+                }
 
-            lk.Display();
+            }
 
-            /* lk.Append(2, 1000);
-             lk.Display();*/
+            tree.InorderTreeWalk(tree.Root);
 
-            lk.DeleteNode(0);
-            lk.Display();
+            tree.TreeDelete(three);
+            Console.WriteLine();
 
-            lk.DeleteNode(1);
-            lk.Display();
-
-            lk.DeleteNode(2);
-            lk.Display();
-
-            lk.DeleteNode(3);
-            lk.Display();
+            tree.InorderTreeWalk(tree.Root);
         }
     }
 }
