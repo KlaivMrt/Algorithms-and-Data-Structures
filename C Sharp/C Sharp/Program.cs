@@ -8,7 +8,7 @@
             Random random = new Random();
 
             BT_Node? three = null;
-            BT_Node? eight = null;
+            BT_Node? two = null;
 
             for (int i = 0; i < 10; i++)
             {
@@ -22,8 +22,8 @@
                 else if (i == 2)
                 {
                     node.Key = i;
-                    eight = node;
-                    tree.TreeInsert(eight);
+                    two = node;
+                    tree.TreeInsert(two);
                 }
                 else
                 {
